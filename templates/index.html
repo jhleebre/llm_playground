@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LLM Chat Playground</title>
+    <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -12,10 +13,12 @@
     </header>
     <div class="main-container">
         <div class="input-section">
+            <!-- Form to interact with the language model -->
             <form method="post" onsubmit="showLoading()">
                 <div class="form-group">
                     <label for="model">Select OpenAI Model:</label>
                     <select id="model" name="model">
+                        <!-- Loop to display available models -->
                         {% for model in models %}
                             <option value="{{ model }}" {% if session['model'] == model %}selected{% endif %}>{{ model }}</option>
                         {% endfor %}
@@ -42,6 +45,7 @@
             <label for="chat_history">Chat History:</label>
             <div class="chat-history" id="history">
                 <div id="messages">
+                    <!-- Loop to display chat history -->
                     {% for message in chat_history %}
                         <div class="message">
                             <strong>{{ message.role }}:</strong> {{ message.content|safe }}
@@ -54,6 +58,7 @@
             </div>
         </div>
     </div>
+    <!-- Link to the external JavaScript file -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

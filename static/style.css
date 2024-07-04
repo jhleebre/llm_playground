@@ -1,3 +1,4 @@
+/* Basic styling for the body */
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
@@ -10,6 +11,7 @@ body {
     overflow: hidden;
 }
 
+/* Styling for the header */
 header {
     width: 100%;
     background-color: #6c757d;
@@ -23,6 +25,7 @@ header h1 {
     font-size: 1.2em;
 }
 
+/* Container for the main content */
 .main-container {
     display: flex;
     width: 100%;
@@ -36,6 +39,7 @@ header h1 {
     margin-top: 10px;
 }
 
+/* Styling for the input section */
 .input-section {
     flex: 0.4;
     padding: 20px;
@@ -45,6 +49,7 @@ header h1 {
     height: 100%;
 }
 
+/* Styling for the chat section */
 .chat-section {
     flex: 0.6;
     padding: 20px;
@@ -54,15 +59,18 @@ header h1 {
     height: 100%;
 }
 
+/* Form group styling */
 .form-group {
     margin-bottom: 20px;
 }
 
+/* Label styling */
 label {
     font-weight: bold;
     font-size: 0.9em;
 }
 
+/* Input and textarea styling */
 textarea, select, input[type="submit"], button, input[type="number"] {
     width: 100%;
     padding: 8px;
@@ -77,6 +85,7 @@ textarea {
     height: 200px;
 }
 
+/* Button group styling */
 .button-group {
     display: flex;
     justify-content: flex-start;
@@ -95,6 +104,7 @@ input[type="submit"]:hover, button:hover {
     background-color: #5a6268;
 }
 
+/* Chat history styling */
 .chat-history {
     background-color: #f1f1f1;
     padding: 10px;
@@ -115,6 +125,7 @@ input[type="submit"]:hover, button:hover {
     margin: 10px 0;
 }
 
+/* Small text styling */
 small {
     display: block;
     text-align: center;
@@ -122,6 +133,7 @@ small {
     font-size: 0.8em;
 }
 
+/* Loading animation styling */
 .loading {
     display: none;
     text-align: center;
@@ -143,6 +155,7 @@ code {
     font-size: 1.1em;
 }
 
+/* Loading dots animation */
 @keyframes loading-dots {
     0% { content: ""; }
     33% { content: "."; }
