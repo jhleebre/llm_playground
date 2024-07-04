@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Chat Playground</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>LLM Chat Playground</h1>
+    </header>
+    <div class="main-container">
+        <div class="input-section">
+            <form method="post" onsubmit="showLoading()">
+                <div class="form-group">
+                    <label for="model">Select OpenAI Model:</label>
+                    <select id="model" name="model">
+                        {% for model in models %}
+                            <option value="{{ model }}" {% if session['model'] == model %}selected{% endif %}>{{ model }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="temperature">Temperature:</label>
+                    <input type="number" id="temperature" name="temperature" step="0.1" min="0" max="1" value="{{ temperature }}">
+                </div>
+                <label for="system_message">System Message (if provided, will reset chat history):</label>
+                <textarea id="system_message" name="system_message" rows="6"></textarea><br>
+                <label for="user_message">User Message:</label>
+                <textarea id="user_message" name="user_message" rows="6" onkeydown="submitOnCtrlEnter(event)"></textarea><br>
+                <div class="button-group">
+                    <button type="submit" name="clear" value="clear">Clear Chat History</button>
+                    <input type="submit" value="Send" id="sendButton">
+                    <small>Press Ctrl+Enter to send the message</small>
+                </div>
+            </form>
+            <br>
+            <div class="loading" id="loading"><strong>Loading</strong></div>
+        </div>
+        <div class="chat-section">
+            <label for="chat_history">Chat History:</label>
+            <div class="chat-history" id="history">
+                <div id="messages">
+                    {% for message in chat_history %}
+                        <div class="message">
+                            <strong>{{ message.role }}:</strong> {{ message.content|safe }}
+                        </div>
+                        {% if not loop.last %}
+                            <hr>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

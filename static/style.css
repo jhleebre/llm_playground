@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; /* 브라우저 창의 전체 높이를 차지함 */
+    overflow: hidden; /* 스크롤바를 숨김 */
+}
+
+header {
+    width: 100%;
+    background-color: #6c757d; /* 회색 배경 색깔 */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.2em; /* 폰트 크기 줄임 */
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    height: 800px; /* 고정 높이 설정 */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-top: 10px; /* 헤더와 간격 추가 */
+}
+
+.input-section {
+    flex: 0.4;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-right: 1px solid #ddd;
+    height: 100%; /* 전체 높이를 차지하도록 설정 */
+}
+
+.chat-section {
+    flex: 0.6;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    height: 100%; /* 전체 높이를 차지하도록 설정 */
+}
+
+.form-group {
+    margin-bottom: 20px; /* 아래쪽 여백 추가 */
+}
+
+label {
+    font-weight: bold;
+    font-size: 0.9em; /* 폰트 크기 줄임 */
+}
+
+textarea, select, input[type="submit"], button, input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 0.9em; /* 폰트 크기 줄임 */
+}
+
+textarea {
+    height: 200px; /* 높이를 높임 */
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="submit"], button {
+    width: auto;
+    background-color: #6c757d; /* 회색 버튼 색깔 */
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #5a6268;
+}
+
+.chat-history {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 4px;
+    max-height: calc(100% - 80px); /* 채팅 히스토리 영역의 높이 조정 */
+    overflow-y: auto;
+    margin-top: 10px; /* 위쪽 여백 제거 */
+}
+
+.chat-history .message {
+    margin-bottom: 10px;
+    font-size: 0.9em; /* 폰트 크기 줄임 */
+}
+
+.chat-history hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+small {
+    display: block;
+    text-align: center;
+    color: #888;
+    font-size: 0.8em; /* 폰트 크기 줄임 */
+}
+
+.loading {
+    display: none;
+    text-align: center;
+}
+
+pre {
+    background-color: #f6f8fa;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    padding: 16px;
+    overflow: auto;
+    font-size: 0.9em; /* 폰트 크기 줄임 */
+}
+
+code {
+    background-color: #f6f8fa;
+    padding: 3px 5px;
+    border-radius: 3px;
+    font-size: 1.1em; /* 폰트 크기 줄임 */
+}
+
+/* 로딩 애니메이션 추가 */
+@keyframes loading-dots {
+    0% { content: ""; }
+    33% { content: "."; }
+    66% { content: ".."; }
+    100% { content: "..."; }
+}
+
+.loading::after {
+    content: "";
+    animation: loading-dots 1s steps(3, end) infinite;
+}
