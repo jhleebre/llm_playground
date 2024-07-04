@@ -60,7 +60,7 @@ You may need to use following command on MacOS:
 pyinstaller --onefile --add-data "templates:templates" --add-data "static:static" app.py
 ```
 
-Once packaging is complete, `app.exe` (or just `app` in MacOS) file will be created in your directory `dist`. You can run this file to use the application. You might need to adjust the permissions to make the file executable. You can do this using the `chmod` command:
+Once packaging is complete, `app.exe` (or just `app` on MacOS) file will be created in your directory `dist`. You can run this file to use the application. You might need to adjust the permissions to make the file executable. You can do this using the `chmod` command:
 
 ```bash
 chmod +x dist/app
