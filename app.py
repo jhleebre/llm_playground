@@ -3,6 +3,7 @@ from flask import Flask, request, render_template, session, redirect, url_for
 import requests
 import markdown
 from dotenv import load_dotenv
+from flask_session import Session
 
 # Load environment variables from .env file
 load_dotenv()
@@ -16,6 +17,10 @@ app.secret_key = os.urandom(24)
 API_KEY = os.getenv('LLM_API_KEY')
 API_URL = os.getenv('LLM_API_URL')
 MODELS = os.getenv('LLM_MODELS').split(',')
+
+# Configure session to use filesystem (instead of signed cookies)
+app.config['SESSION_TYPE'] = 'filesystem'
+Session(app)
 
 # Function to call the language model API
 def call_llm_api(model, messages, temperature):

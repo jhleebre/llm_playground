@@ -1,4 +1,5 @@
 dist/
 build/
+flask_session/
 app.spec
 .env
