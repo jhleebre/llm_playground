@@ -1,5 +1,6 @@
 dist/
 build/
 flask_session/
+venv/
 app.spec
 .env
